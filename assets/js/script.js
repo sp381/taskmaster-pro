@@ -194,7 +194,7 @@ $(this).children().each(function() {
   // update array on tasks object and save 
   tasks[arrName] = tempArr;
   saveTasks();
-  
+
   var text = $(this)
     .find("p")
     .text()
@@ -230,6 +230,19 @@ console.log(tempArr);
 
   //replace input with span element
   $(this).replaceWith(taskSpan);
+}
+
+$("#trash").droppable({
+  accept: ".card .list-group-item",
+  tolerance: "touch",
+  drop: function(event, ui) {
+    console.log("drop");
+  ui.draggable.remove();
+  },
+  over: function(event, ui) {
+    console.log("over");
+  },
+  out: function(event, ui) {
+    console.log("out");
+  }
 });
-
-
